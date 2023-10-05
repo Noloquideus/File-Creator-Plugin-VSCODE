@@ -17,5 +17,30 @@ export function activate(context: vscode.ExtensionContext) {
             { label: 'Создать файл Python', extension: 'py' },
             { label: 'Создать файл JSON', extension: 'json' }
         ];
-	});
+
+        // Обработчик изменения выбора
+        quickPick.onDidChangeSelection((selection) => {
+            if (selection && selection[0]) {
+                const selected = selection[0];
+                // Отображение всплывающего окна для ввода имени файла
+                vscode.window.showInputBox({ prompt: 'Введите имя файла' }).then((fileName) => {
+                    if (fileName) {
+                        const filePath = vscode.workspace.rootPath + '/' + fileName + '.' + selected.extension;
+                        // Создание файла с пустым содержимым
+                        fs.writeFileSync(filePath, '');
+                        // Отображение информационного сообщения об успешном создании файла
+                        vscode.window.showInformationMessage(`Создан файл ${selected.label}: ${fileName}`);
+                    }
+                });
+            }
+        });
+
+        // Отображение элемента быстрого выбора
+        quickPick.show();
+    });
+
+    // Добавление подписки на удаление команды при деактивации расширения
+    context.subscriptions.push(disposable);
 }
+
+export function deactivate() {}
