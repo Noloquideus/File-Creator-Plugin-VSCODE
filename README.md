@@ -1,6 +1,8 @@
 ## Simple Create File
 Расширение для Visual Studio Code, которое позволяет создавать файлы различных типов с помощью быстрого выбора.
 
+![Alt Text](referens.gif)
+
 ## Установка
 Откройте Visual Studio Code.
 Перейдите во вкладку "Extensions" (Расширения) в боковой панели.
