@@ -1,6 +1,6 @@
 {
-  "name": "file-creator-plugin-vscode",
-  "displayName": "File-Creator-Plugin-VSCODE",
+  "name": "simple-create-file",
+  "displayName": "Simple Create File",
   "description": "",
   "version": "0.0.1",
   "engines": {
@@ -9,13 +9,12 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "file-creator-plugin-vscode.helloWorld",
-        "title": "Hello World"
+        "command": "simple-create-file.showCreateFileMenu",
+        "title": "Show Create File Menu"
       }
     ]
   },
